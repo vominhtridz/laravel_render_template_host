@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+::-webkit-scrollbar {
+    width: 12px; /* Horizontal scrollbar width */
+    height: 12px; /* Vertical scrollbar height */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light background for the scrollbar track */
+    border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4A90E2; /* Tailwind blue color for the thumb */
+    border-radius: 10px; /* Rounded thumb */
+    border: 3px solid #f1f1f1; /* Light border around the thumb */
+}
+
+/* Hover effect on the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+    background: #357ABD; /* Darker blue for hover effect */
+}
+
