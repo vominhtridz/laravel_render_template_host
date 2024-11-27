@@ -7,7 +7,7 @@
     <link rel="icon" href="../../../public/favicon.ico">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- link to config tailwind css  -->
-    
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- bootstrap -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
      <!-- Jquery -->

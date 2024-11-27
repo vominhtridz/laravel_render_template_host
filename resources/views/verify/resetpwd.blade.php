@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" />
     <title>Thay Đổi Mật Khẩu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 @php 
 $PwdErr = $errors->has('password')? 'outline-red-500 border-red-500':'text-gray-800  border-gray-300 outline-blue-500';
