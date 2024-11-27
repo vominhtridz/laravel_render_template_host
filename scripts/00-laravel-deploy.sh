@@ -3,6 +3,7 @@ php artisan view:clear
 php artisan route:clear
 php artisan config:clear
 npm install
+npm run build
 # Clear all cached data including optimized files
 php artisan optimize:clear
 
