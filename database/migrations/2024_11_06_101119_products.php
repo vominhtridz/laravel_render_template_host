@@ -11,6 +11,16 @@ return new class extends Migration
      */   
     public function up(): void
     {
+    Schema::create('categories', function (Blueprint $table) {
+    $table->id(); // Khoá chính tự động tăng
+    $table->string('name')->unique(); // Tên danh mục
+    $table->string('slug')->unique(); // Slug của danh mục, duy nhất
+    $table->text('description'); // Mô tả danh mục, có thể để trống
+    $table->string('image'); // Mô tả danh mục, có thể để trống
+    $table->unsignedBigInteger('parent_id')->nullable(); // ID danh mục cha, nullable
+    $table->timestamps(); // Cột created_at và updated_at
+    $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
+    });
     Schema::create('products', function (Blueprint $table) {
     $table->id(); // Auto-incrementing primary key
     $table->string('name'); // Product name
@@ -32,6 +42,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('categories');
         Schema::dropIfExists('products');
     }
 };
