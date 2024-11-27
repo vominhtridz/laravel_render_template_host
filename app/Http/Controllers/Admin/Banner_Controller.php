@@ -12,14 +12,14 @@ class Banner_Controller extends Controller
 
 public function Banners(){
     $banners = banners::all();
-    return view('components.banner.banners',compact('banners'));
+    return view('Components.banner.banners',compact('banners'));
 }
 public function Add_Banner(){
-    return view('components.banner.add_banners');
+    return view('Components.banner.add_banners');
 }
 public function Edit_Banner($id){
     $banner = banners::find($id);
-    return view('components.banner.edit_banners',compact('banner'));
+    return view('Components.banner.edit_banners',compact('banner'));
 }
 
 public function handleAddBanner(Request $request){
@@ -64,7 +64,7 @@ public function handleAddBanner(Request $request){
         return redirect('/banners')->with('cuccess', 'Thêm banner thành công.');
 }
 public function handleSearchBanner(Request $request){
-    return view('components.banner.banners');
+    return view('Components.banner.banners');
 }
 public function handleEditBanner(Request $request,$id){
        $validated = $request->validate([

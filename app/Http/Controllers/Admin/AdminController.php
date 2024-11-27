@@ -31,7 +31,7 @@ class AdminController extends Controller
  public function AllOrders(){
         $orders = orders::with(['customers','order_items.address'])->get();
         
-    return view('components.orders.orders',compact('orders'));
+    return view('Components.orders.orders',compact('orders'));
  }
  public function view_detail_order($order_id){
         $order = orders::where('order_id', $order_id)->first();
@@ -41,11 +41,11 @@ class AdminController extends Controller
         foreach($order_items as $item){
             $total_price += $item->total_price;
         }
-   return view('components.orders.detail_order',compact('total_price','order','order_items','customer'));
+   return view('Components.orders.detail_order',compact('total_price','order','order_items','customer'));
  }
 
  public function tracking_Oders(){
      $orders = orders::with(['customers','order_items'])->get();
-     return   view('components.orders.tracking_orders' ,compact('orders'));
+     return   view('Components.orders.tracking_orders' ,compact('orders'));
  }
 }

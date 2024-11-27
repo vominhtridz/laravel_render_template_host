@@ -101,22 +101,22 @@ class ProductControllers extends Controller
     // view Search product page
     public function SearchProduct (){
         $categories = Categories::all();
-            return view('components.products.search_products',compact('categories'));    
+            return view('Components.products.search_products',compact('categories'));    
     }
     // view All product page
      public function All_Product (){
         $products = Product::all();
-        return view('components.products.products',compact('products'));
+        return view('Components.products.products',compact('products'));
     }
     // add Product
     public function Add_Product (){
         $categories = Categories::all();
-        return view('components.products.add_products',compact('categories'));
+        return view('Components.products.add_products',compact('categories'));
     }
     // update product
      public function edit_product ($id){
         $product = Product::find($id);
        $categories = Categories::all();
-        return view('components.products.edit_product',compact('product','categories'));
+        return view('Components.products.edit_product',compact('product','categories'));
     }
 }

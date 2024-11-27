@@ -9,20 +9,20 @@ use Illuminate\Http\Request;
 class CustomerControllers extends Controller
 {
     public function List_Support_Customer (){
-        return view('components.customers.support_customers');
+        return view('Components.customers.support_customers');
     }
     
       public function getAll_Customer (){
         $customers = customers::with('orders', 'banks')->get();
-        return view('components.customers.customers',compact('customers'));
+        return view('Components.customers.customers',compact('customers'));
     }
      public function support_messages (){
-        return view('components.customers.manage_messages');
+        return view('Components.customers.manage_messages');
     }
      public function InforCustomers ($id){
         $customer = customers::find($id);
         if($customer){
-            return view('components.customers.infor_customers',compact('customer'));
+            return view('Components.customers.infor_customers',compact('customer'));
         }
         return redirect()->back()->with('error','không tìm thấy khách hàng.');
     }

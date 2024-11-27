@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 class SaleControllers extends Controller
 {
      public function Promotion (){
-        return view('components.products.promotions');
+        return view('Components.products.promotions');
     }
    public function Edit_Promotion (){
-        return view('components.products.edit_promotion');
+        return view('Components.products.edit_promotion');
 
     }
   public function Add_Promotion (){
-        return view('components.products.add_promotions');
+        return view('Components.products.add_promotions');
     }
 }

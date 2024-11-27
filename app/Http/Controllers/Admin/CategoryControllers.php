@@ -85,13 +85,13 @@ class CategoryControllers extends Controller
         return back()->with('cuccess', 'Xoá Danh Mục thành công.');
     }
      public function Add_category (){
-        return view('components.categories.add_categories');
+        return view('Components.categories.add_categories');
     }
        // Categories view
     public function All_category (){
         $categories = Categories::all();
 
-        return view('components.categories.categories',compact('categories'));
+        return view('Components.categories.categories',compact('categories'));
     }
     public function EditCategory ($id){
         $category = Categories::find($id);
@@ -99,7 +99,7 @@ class CategoryControllers extends Controller
         if(!$category){
             return redirect('/categories')->with('error','Danh mục không tìm thấy!');
         }
-        return view('components.categories.edit_categories',compact('category'));
+        return view('Components.categories.edit_categories',compact('category'));
     }
    
   

@@ -158,7 +158,7 @@ class OrderControllers extends Controller
             ->get();
     }
     // Trả lại view với danh sách đơn hàng và trạng thái lọc
-    return view('components.orders.orders', compact('orders'));
+    return view('Components.orders.orders', compact('orders'));
     }
      public function handle_cancelOrder($id){
         $order = orders::find($id);
@@ -238,11 +238,11 @@ class OrderControllers extends Controller
 
         // If the request is AJAX, return a partial view with the search results
         if ($request->ajax()) {
-            return view('components.orders.tracking_orders', compact('orders'));  // Return a partial view with the filtered orders
+            return view('Components.orders.tracking_orders', compact('orders'));  // Return a partial view with the filtered orders
         }
 
         // For non-AJAX requests (regular form submission)
-        return view('components.orders.tracking_orders', compact('orders'));
+        return view('Components.orders.tracking_orders', compact('orders'));
     }
     
      public function getOrderByCustomer_id($id)

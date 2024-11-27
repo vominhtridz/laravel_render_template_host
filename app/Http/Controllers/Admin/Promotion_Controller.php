@@ -78,7 +78,7 @@ class Promotion_Controller extends Controller
      public function Promotion (){
         try{
 $promotions = Promotion::with('categories', 'products')->get();
-                return view('components.products.promotions',compact('promotions'));
+                return view('Components.products.promotions',compact('promotions'));
         }
           catch (QueryException $e) {
         // Catch database-related errors
@@ -93,12 +93,12 @@ $promotions = Promotion::with('categories', 'products')->get();
     $promotion = promotion::with('categories','products')->where('id',$id)->first();
      $categories = Categories::all();
     $products = Product::all();
-        return view('components.products.edit_promotion',compact('promotion','products','categories'));
+        return view('Components.products.edit_promotion',compact('promotion','products','categories'));
     }
   public function Add_Promotion (){
     $categories = Categories::all();
     $products = Product::all();
 
-        return view('components.products.add_promotions', compact('categories', 'products'));
+        return view('Components.products.add_promotions', compact('categories', 'products'));
     }
 }
