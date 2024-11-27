@@ -22,7 +22,7 @@ public function register_customer(Request $request){
         'email' => 'required|email|unique:customers',
         'name' => 'required|string',
         'password' => 'required|string|min:8',
-        'image'=>'string',
+        
         'password1' => 'required|string|min:8|same:password',
         ],[ 
         'email.required' => 'Email không bỏ trống',
