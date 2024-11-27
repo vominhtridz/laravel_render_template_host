@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\categories;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class CategoryControllers extends Controller
@@ -26,7 +26,7 @@ class CategoryControllers extends Controller
         }
         $imagePath = 'images/' . $imageName;
         // Create a new category
-        categories::create([
+        Categories::create([
             'name' => $validated['name'],
             'description' => $validated['description'],
             'image' => $imagePath,
@@ -44,7 +44,7 @@ class CategoryControllers extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'slug' => 'required|string|max:255',
         ]);
-        $NameAndSlugExits = categories::where('id', '!=', $id)
+        $NameAndSlugExits = Categories::where('id', '!=', $id)
             ->where('name', $request->name)
             ->where('slug', $request->slug)
             ->exists();
@@ -52,7 +52,7 @@ class CategoryControllers extends Controller
             return redirect()->back()->with('error', 'Tên danh mục hoặc slug đã tồn tại.');
         }
         // check if the image file exists then save it
-        $category = categories::find($id);
+        $category = Categories::find($id);
         $imageName = '';
         if (!file_exists(($category->image))) {
             $imageName = $request->file('image')->getClientOriginalName();
@@ -78,7 +78,7 @@ class CategoryControllers extends Controller
     public function handleRemovecategories($id)
     {
         // Find the category by ID
-        $category = categories::findOrFail($id);
+        $category = Categories::findOrFail($id);
         // Delete the category
         $category->delete();
         // Return a response
@@ -89,12 +89,12 @@ class CategoryControllers extends Controller
     }
        // categories view
     public function All_category (){
-        $categories = categories::all();
+        $categories = Categories::all();
 
         return view('Components.categories.categories',compact('categories'));
     }
     public function EditCategory ($id){
-        $category = categories::find($id);
+        $category = Categories::find($id);
    
         if(!$category){
             return redirect('/categories')->with('error','Danh mục không tìm thấy!');
