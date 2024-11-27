@@ -4,7 +4,7 @@ echo "Running composer"
 composer install --no-dev --working-dir=/var/www/html
 echo "Installing laravel-mix..."
 npm install -g laravel-mix
-
+npm run build
 echo "Installing dependencies..."
 npm install
 echo "Caching config..."
