@@ -23,5 +23,4 @@ echo "Running migrations..."
 php artisan migrate --force
 php artisan db:seed --class=RolePermissionSeeder
 echo "Running server..."
-composer dump-server
-composer run dev
+php artisan serve --host=0.0.0.0 --port=8000
