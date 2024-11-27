@@ -187,12 +187,12 @@ class SettingControllers extends Controller
     }
      public function Add_Shipfee (){
 
-        return view('add_Shipfee');
+        return view('add_shipfee');
     }
      public function Edit_Shipfee ($id){
         $shippingFee = shipfee::find($id)->first();
 
-        return view('edit_Shipfee',compact('shippingFee'));
+        return view('edit_shipfee',compact('shippingFee'));
     }
     public function Settings_payment (){
         return view('payments');
