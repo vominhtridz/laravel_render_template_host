@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name'); // Tên danh mục
             $table->string('password'); // Tên danh mục
             $table->dateTime('birthday')->default(now()); // Tên danh mục
+            $table->string('remember_token'); // Tên danh mục
             $table->string('image')->nullable(true); // Tên danh mục
             $table->string('email')->unique(); // Slug của danh mục, duy nhất
             $table->integer('phonenumber')->nullable(true); // Mô tả danh mục, có thể để trống

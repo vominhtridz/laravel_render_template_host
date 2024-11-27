@@ -86,7 +86,7 @@
 
     <div class="mb-4">
         <label for="productImage" class="block outline-none text-base font-medium text-gray-700">Logo Website</label>
-        <img id="renderImg" src="{{ !is_null($settings) ? $settings->logo : '/images/addimage.jpg' }}" alt="Category Image" class="w-44 h-46 object-cover mb-4" />
+        <img id="renderImg" src="/{{ !is_null($settings) ? $settings->logo : 'images/addimage.jpg' }}" alt="Category Image" class="w-44 h-46 object-cover mb-4" />
         <input 
             name="logo" 
             type="file" 
