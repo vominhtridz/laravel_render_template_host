@@ -1,22 +1,20 @@
-#!/usr/bin/env bash
-
-echo "Running composer"
-composer install --no-dev --working-dir=/var/www/html
-echo "Caching config..."
-php artisan config:cache
-
-echo "Caching routes..."
-php artisan route:cache
-echo "optimize clear...."
-php artisan optimize:clear
-echo "Clearing view cache..."
+# Clear old cached views and configurations
 php artisan view:clear
-echo "Clearing compiled views..."
+php artisan route:clear
+php artisan config:clear
+npm install
+# Clear all cached data including optimized files
+php artisan optimize:clear
+
+# Rebuild caches
+php artisan config:cache
+php artisan route:cache
+
+# Clear compiled views and dump autoload
 php artisan view:cache
-echo "Clearing compiled assets..."
 composer dump-autoload
-echo "Running migrations..."
+
+# Run migrations and seeders
 php artisan migrate --force
 php artisan db:seed --class=RolePermissionSeeder
-echo "Running server..."
-php artisan serve --host=0.0.0.0 --port=8000
+composer run dev

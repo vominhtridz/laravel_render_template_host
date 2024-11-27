@@ -8,7 +8,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css" />
- <script src="https://cdn.tailwindcss.com"></script>
+ @vite('resources/js/app.js')
+@vite('resources/css/app.css')
+
 </head>
 @php 
 $emailError = $errors->has('email')? 'outline-red-500 border-red-500':'text-gray-800  border-gray-300 outline-blue-500';
