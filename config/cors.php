@@ -19,9 +19,9 @@ return [
 
     'allowed_methods' => ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
 
-    'allowed_origins' => ['http://localhost:5174','http://localhost:5173'],
+    'allowed_origins' => ['http://localhost:5174','http://localhost:5173', 'https://frontend-electronics-website.onrender.com'],
 
-    'allowed_origins_patterns' => ['http://localhost:5174','http://localhost:5173'],
+    'allowed_origins_patterns' => ['http://localhost:5174','http://localhost:5173','https://frontend-electronics-website.onrender.com'],
 
     'allowed_headers' => ['*'],
 
