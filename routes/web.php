@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
      Route::post('/users/search/{value}', [UserControllers::class,'handleSearchUsers'])->name('handleSearchUsers');
      Route::put('/users/edit/{id}', [UserControllers::class,'handleEditUser'])->name('handleEditUser');
      Route::delete('/users/delete/{id}', [UserControllers::class,'handleRemoveUser'])->name('handleRemoveUser');
-Route::delete('/categories/delete/{id}', [CategoryControllers::class,'handleRemoveCategories'])->name('handleRemoveCategories');
+Route::delete('/categories/delete/{id}', [CategoryControllers::class,'handleRemovecategories'])->name('handleRemovecategories');
  Route::delete('/banners/delete/{id}', [Banner_Controller::class,'handleRemoveBanner'])->name('handleRemoveBanner');
  Route::delete('/products/delete/{id}', [ProductControllers::class,'handleRemoveProduct'])->name('handleRemoveProduct');
  Route::delete('/promotion/delete/{id}', [Promotion_Controller::class,'handleRemovepromotion'])->name('handleRemovepromotion');
@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth','roles:admin,editor,viewer']], function ()
     Route::get('/users/add', [UserControllers::class, 'Add_Users'])->name('Add_Users');
     Route::get('/users/search', [UserControllers::class, 'Search_Users'])->name('Search_Users');
     Route::get('/users/edit/{id}', [UserControllers::class, 'EditUser'])->name('EditUser');
-    // Categories
+    // categories
     Route::get('/categories', [CategoryControllers::class, 'All_category'])->name('All_category');
     Route::get('/categories/edit/{id}', [CategoryControllers::class, 'EditCategory'])->name('EditCategory');
     Route::get('/categories/add', [CategoryControllers::class, 'Add_category'])->name('Add_category');
@@ -105,9 +105,9 @@ Route::group(['middleware'=> 'auth', 'roles:admin,editor'],function () {
      Route::post('/products/add', [ProductControllers::class,'handleAddProduct'])->name('handleAddProduct');
      Route::post('/products/search', [ProductControllers::class,'handleSearchProduct'])->name('handleSearchProduct');
      Route::put('/products/edit/{id}', [ProductControllers::class,'handleEditProduct'])->name('handleEditProduct');
-    //  MANAGE CATEGORIES
-     Route::post('/categories/add', [CategoryControllers::class,'handleAddCategories'])->name('handleAddCategories');
-     Route::put('/categories/edit/{id}', [CategoryControllers::class,'handleEditCategories'])->name('handleEditCategories');
+    //  MANAGE categories
+     Route::post('/categories/add', [CategoryControllers::class,'handleAddcategories'])->name('handleAddcategories');
+     Route::put('/categories/edit/{id}', [CategoryControllers::class,'handleEditcategories'])->name('handleEditcategories');
     // MANAGE BANNERS
      Route::post('/banners/add', [Banner_Controller::class,'handleAddBanner'])->name('handleAddBanner');
      Route::post('/banners/search/{value}', [Banner_Controller::class,'handleSearchBanner'])->name('handleSearchBanner');

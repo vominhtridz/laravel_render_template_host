@@ -13,7 +13,7 @@ class promotion extends Model
 ];
  public function categories()
 {
-    return $this->belongsTo(Categories::class,'category_id','id');
+    return $this->belongsTo(categories::class,'category_id','id');
 }
  public function products()
 {

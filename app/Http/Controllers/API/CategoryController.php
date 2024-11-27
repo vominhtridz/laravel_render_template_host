@@ -4,14 +4,14 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\banners;
-use App\Models\Categories;
+use App\Models\categories;
 use App\Models\Product;
 use Illuminate\Database\QueryException;
 
 class CategoryController extends Controller
 {
     public function All_category(){
-        $categories = Categories::all();
+        $categories = categories::all();
         if(!$categories){
             return response()->json(['message' => 'không tìm thấy danh mục'],404);
         }

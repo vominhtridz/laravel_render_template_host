@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categories;
+use App\Models\categories;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -51,7 +51,7 @@ class ProductControllers extends Controller
             'description' => $validated['description'],
             'quantity' => $validated['quantity'],
             'image' => $image,
-            'category_id' => Categories::where('name', $validated['category'])->first()->id,
+            'category_id' => categories::where('name', $validated['category'])->first()->id,
             'color' => $validated['color'],
         ]);
 
@@ -83,7 +83,7 @@ class ProductControllers extends Controller
         'description'=> $validated['description'],
         'quantity'=> $validated['quantity'],
         'image'=> $selectImage,
-        'category_id'=> Categories::where('name', $request->category)->first()?->id,
+        'category_id'=> categories::where('name', $request->category)->first()?->id,
         'color'=> $validated['color'],
         ]);
         // Return a response
@@ -100,7 +100,7 @@ class ProductControllers extends Controller
 
     // view Search product page
     public function SearchProduct (){
-        $categories = Categories::all();
+        $categories = categories::all();
             return view('Components.products.search_products',compact('categories'));    
     }
     // view All product page
@@ -110,13 +110,13 @@ class ProductControllers extends Controller
     }
     // add Product
     public function Add_Product (){
-        $categories = Categories::all();
+        $categories = categories::all();
         return view('Components.products.add_products',compact('categories'));
     }
     // update product
      public function edit_product ($id){
         $product = Product::find($id);
-       $categories = Categories::all();
+       $categories = categories::all();
         return view('Components.products.edit_product',compact('product','categories'));
     }
 }

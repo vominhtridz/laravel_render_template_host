@@ -14,7 +14,7 @@
         </ul>
     </div>
 @endif
-    <form action="{{ route('handleAddCategories')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('handleAddcategories')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <!-- Tên Danh Mục -->

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categories;
+use App\Models\categories;
 use App\Models\order_items;
 use App\Models\order_status;
 use App\Models\orders;
@@ -195,7 +195,7 @@ class OrderControllers extends Controller
         'description'=> $validated['description'],
         'quantity'=> $validated['quantity'],
         'image'=> $selectImage,
-        'category_id'=> Categories::where('name', $request->category)->first()?->id,
+        'category_id'=> categories::where('name', $request->category)->first()?->id,
         'color'=> $validated['color'],
         ]);
         // Return a response

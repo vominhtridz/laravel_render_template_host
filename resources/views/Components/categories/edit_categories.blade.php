@@ -14,7 +14,7 @@
         </ul>
     </div>
 @endif
-    <form action="{{ route('handleEditCategories', ['id' => $category->id]) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('handleEditcategories', ['id' => $category->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
 

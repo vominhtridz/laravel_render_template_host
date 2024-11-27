@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categories;
+use App\Models\categories;
 use Illuminate\Http\Request;
 
 class CategoryControllers extends Controller
 {
-     // Handle Add Categories
-    public function handleAddCategories(Request $request)
+     // Handle Add categories
+    public function handleAddcategories(Request $request)
     {
    
         // Validate the incoming request data
         $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:Categories',
+            'name' => 'required|string|max:255|unique:categories',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
-            'slug' => 'required|string|max:255|unique:Categories',
+            'slug' => 'required|string|max:255|unique:categories',
         ]);
         $imageName = $request->file('image')->getClientOriginalName();
         $filePath = public_path('images/' . $imageName);
@@ -26,7 +26,7 @@ class CategoryControllers extends Controller
         }
         $imagePath = 'images/' . $imageName;
         // Create a new category
-        Categories::create([
+        categories::create([
             'name' => $validated['name'],
             'description' => $validated['description'],
             'image' => $imagePath,
@@ -35,8 +35,8 @@ class CategoryControllers extends Controller
         // Return a response
         return redirect('/categories')->with('cuccess', 'Thêm danh mục thành công.');
     }
-    // Handle Edit Categories
-    public function handleEditCategories(Request $request, $id)
+    // Handle Edit categories
+    public function handleEditcategories(Request $request, $id)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -44,7 +44,7 @@ class CategoryControllers extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
             'slug' => 'required|string|max:255',
         ]);
-        $NameAndSlugExits = Categories::where('id', '!=', $id)
+        $NameAndSlugExits = categories::where('id', '!=', $id)
             ->where('name', $request->name)
             ->where('slug', $request->slug)
             ->exists();
@@ -52,7 +52,7 @@ class CategoryControllers extends Controller
             return redirect()->back()->with('error', 'Tên danh mục hoặc slug đã tồn tại.');
         }
         // check if the image file exists then save it
-        $category = Categories::find($id);
+        $category = categories::find($id);
         $imageName = '';
         if (!file_exists(($category->image))) {
             $imageName = $request->file('image')->getClientOriginalName();
@@ -74,11 +74,11 @@ class CategoryControllers extends Controller
         return redirect('/categories')->with('cuccess', 'Cập nhật danh mục thành công.');
     }
 
-    // Handle Remove Categories
-    public function handleRemoveCategories($id)
+    // Handle Remove categories
+    public function handleRemovecategories($id)
     {
         // Find the category by ID
-        $category = Categories::findOrFail($id);
+        $category = categories::findOrFail($id);
         // Delete the category
         $category->delete();
         // Return a response
@@ -87,14 +87,14 @@ class CategoryControllers extends Controller
      public function Add_category (){
         return view('Components.categories.add_categories');
     }
-       // Categories view
+       // categories view
     public function All_category (){
-        $categories = Categories::all();
+        $categories = categories::all();
 
         return view('Components.categories.categories',compact('categories'));
     }
     public function EditCategory ($id){
-        $category = Categories::find($id);
+        $category = categories::find($id);
    
         if(!$category){
             return redirect('/categories')->with('error','Danh mục không tìm thấy!');

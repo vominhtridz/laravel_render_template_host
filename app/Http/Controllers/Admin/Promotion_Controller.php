@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Categories;
+use App\Models\categories;
 use App\Models\Product;
 use App\Models\promotion;
 use Exception;
@@ -91,12 +91,12 @@ $promotions = Promotion::with('categories', 'products')->get();
     }
    public function Edit_Promotion ($id){
     $promotion = promotion::with('categories','products')->where('id',$id)->first();
-     $categories = Categories::all();
+     $categories = categories::all();
     $products = Product::all();
         return view('Components.products.edit_promotion',compact('promotion','products','categories'));
     }
   public function Add_Promotion (){
-    $categories = Categories::all();
+    $categories = categories::all();
     $products = Product::all();
 
         return view('Components.products.add_promotions', compact('categories', 'products'));

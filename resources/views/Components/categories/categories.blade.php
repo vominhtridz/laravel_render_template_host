@@ -38,11 +38,11 @@
                         <td class="py-2 px-2 text-center border-b">
                             <div class="flex items-center justify-center">
                                 <!-- Chỉnh sửa -->
-                                <a href="{{ route('handleEditCategories', ['id' => $category->id]) }}" class="text-blue-600 hover:text-blue-800 mr-2">
+                                <a href="{{ route('handleEditcategories', ['id' => $category->id]) }}" class="text-blue-600 hover:text-blue-800 mr-2">
                                     <i class="fas fa-edit"></i> Sửa
                                 </a>
                                 <!-- Xóa -->
-                                <form method="POST" action="{{ route('handleRemoveCategories', ['id' => $category->id]) }}" onsubmit="return confirm('Bạn có chắc muốn xóa danh mục này?')">
+                                <form method="POST" action="{{ route('handleRemovecategories', ['id' => $category->id]) }}" onsubmit="return confirm('Bạn có chắc muốn xóa danh mục này?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-500 hover:text-red-700">
