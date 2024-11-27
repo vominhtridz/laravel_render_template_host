@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\categories;
+use App\Models\Categories;
 use App\Models\Product;
 use App\Models\promotion;
 use Exception;
