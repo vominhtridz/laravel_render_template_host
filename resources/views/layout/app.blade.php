@@ -38,9 +38,9 @@
     </style>
 </head>
 <body id="app">
-    @include('components.header')
+    @include('Components.header')
     <div class="">
-        @include('components.sidebar')
+        @include('Components.sidebar')
         <div class="w-full pl-64 pt-[74px] pr-4 h-full ">
              @yield('content')
         </div>
